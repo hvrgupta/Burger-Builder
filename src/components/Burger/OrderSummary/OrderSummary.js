@@ -20,6 +20,7 @@ class OrderSummary extends Component {
             <p>Continue to Checkout?</p>
             <Button btnType="Danger" clicked={this.props.purchaseCanceled}>CANCEL</Button>
             <Button btnType="Success"clicked={this.props.purchaseContinue}>CONTINUE</Button>
+
         </Auxiliary>);
     } 
 }
