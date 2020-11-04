@@ -31,7 +31,7 @@ class BurgerBuilder extends Component{
   }
 
   componentDidMount(){
-    console.log('props',this.props);
+    // console.log('props',this.props);
     axios.get('ingredients.json')
     .then(response => {
       this.setState({ingredients:response.data})
@@ -93,7 +93,6 @@ class BurgerBuilder extends Component{
   }
 
   purchaseContinueHandler = () => {
-     
       const queryParams = [];
 
       for(let i in this.state.ingredients){
@@ -125,15 +124,15 @@ class BurgerBuilder extends Component{
     let burger = this.state.error ? <p>Ingredients can't be loaded</p>:<Spinner />
     
     if(this.state.ingredients){
-      burger = (<Auxiliary><Burger ingredients={this.state.ingredients}/>
-    <BuildControls 
-    ingredientAdded={this.addIngredientHandler}
-    ingredientRemoved={this.removeIngredientHandler}
-    disabled={disabledInfo}
-    purchasable={this.state.purchasable}
-    price={this.state.totalPrice}
-    ordered={this.purchaseHandler}/>
-    </Auxiliary>);
+    burger = (<Auxiliary><Burger ingredients={this.state.ingredients}/>
+      <BuildControls 
+      ingredientAdded={this.addIngredientHandler}
+      ingredientRemoved={this.removeIngredientHandler}
+      disabled={disabledInfo}
+      purchasable={this.state.purchasable}
+      price={this.state.totalPrice}
+      ordered={this.purchaseHandler}/>
+      </Auxiliary>);
     }
     return(
           <Auxiliary>
